@@ -47,7 +47,7 @@ A aplicação permitirá que os usuários criem, editem, apaguem e visualizem os
     - Utilizar o repository para acessar os dados do produto
     - Utilizar o domain model para validar e lidar com as regras de negócios do produto
 
-## API
+## Endpoints
 - [ ]  Criar endpoint de cadastro de produto **POST** `/product`
 - [ ]  Criar endpoint de consulta de produto **GET** `/product/{productId}`
 - [ ]  Criar endpoint de atualização de produto **PUT** `/product/{productId}`
