@@ -15,6 +15,14 @@ A aplicação permitirá que os usuários criem, editem, apaguem e visualizem os
 -  O usuário pode apagar um produto cadastrado;
 -  O usuário pode visualizar todos os produtos cadastrados em forma de um cardápio;
 
+### Tecnologias utilziadas
+- Go
+- Gin
+- Docker
+- PostgreSQL
+- HTMX
+- Tailwind CSS
+
 # Back-end
 ### Configuração e criação do projeto
 - [ ]  Criar projeto usando Go e Gin
