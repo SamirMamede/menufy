@@ -23,17 +23,41 @@ A aplicação permitirá que os usuários criem, editem, apaguem e visualizem os
 - [ ]  Utilizar Docker para containerização da aplicação
 
 ## Infrastructure
-- [ ]  Criar tabela de `Produtos` no banco de dados
+- [ ]  Criar tabela de `Products` no banco de dados
 - [ ]  Configurar conexão com o banco de dados
 - [ ]  Criar migrations para alterar a estrutura do banco de dados
 
 ## Domain Model
 - [ ]  Criar entidades que irá representar um `Produto`
   - Product
-    - Id
-    - Name
-    - Description
-    - Price
+    - `ID`(primary key, uuid): identificado único do produto
+    - `Name`(string): nome do produto
+    - `Description`(string): descrição do produto
+    - `Price`(decimal):preço do produto
+    - `ImagePath`(string): caminho do arquivo de imagem do produto
+
+```
+type Product struct {
+    ID          uuid.UUID       `json:"id"`
+    Name        string          `json:"name"`
+    Description string          `json:"description"`
+    Price       decimal.Decimal `json:"price"`
+    ImagePath   string          `json:"image_path"`
+}
+```
+
+## Database Schema
+
+- [ ]  Schema do banco dados correspondente a entidade de `Product`
+```
+CREATE TABLE products (
+    id UUID PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    image_path VARCHAR(255)
+);
+```
 
 ## Repository
 - [ ]  Criar repository da entidade `Produto`
@@ -52,7 +76,7 @@ A aplicação permitirá que os usuários criem, editem, apaguem e visualizem os
 - [ ]  Criar endpoint de consulta de produto **GET** `/product/{productId}`
 - [ ]  Criar endpoint de atualização de produto **PUT** `/product/{productId}`
 - [ ]  Criar endpoint de exclusão de produto **DELETE** `/product/{productId}`
-- [ ]  Criar endpoint de visualização de todos os produtos **GET** `/products`
+- [ ]  Criar endpoint de visualização de todos os produtos **GET** `/products` 
 
 ## Testes
 ### Escrever testes para cada endpoint da API
