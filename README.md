@@ -1,7 +1,7 @@
 # MenuFy 🍴
 ### Sobre o projeto
 <p>O projeto tem como objetivo criar uma aplicação de cardápio digital para restaurantes e estabelecimentos de alimentação.<br>
-A aplicação permitirá que os usuários criem, editem, apaguem e visualizem os produtos que farão parte do cardápio.<br>
+A aplicação permitirá que os usuários criem, editem, apaguem e visualizem os produtos que farão parte do seu menu.<br>
 </p>
 
 ### Por que "Menufy"?
@@ -10,6 +10,9 @@ A aplicação permitirá que os usuários criem, editem, apaguem e visualizem os
 </p>
 
 ### Requisitos funcionais
+-  O usuário pode se registrar enviando uma solicitação de registro para o administrador;
+-  O administrador pode aprovar ou rejeitar a solicitação de registro;
+-  O usuário pode se logar com seu `nome de usuário` e `senha` após aprovação da solicitação de registro
 -  O usuário cadastra um produto informando o ```nome```, ```descrição```, ```preço```;
 -  O usuário pode editar os dados de um produto cadastrado;
 -  O usuário pode apagar um produto cadastrado;
@@ -53,10 +56,14 @@ type Product struct {
     ImagePath   string          `json:"image_path"`
 }
 ```
+<p>Criar novas tabelas 
+Tabela de sessões: para armazenar as informações de login do usuário e gerar tokens de autenticação.<br>
+Tabela de autenticação: para armazenar as informações de autenticação do usuário, como senha hashada.<br>
+</p>
 
-## Database Schema
+## Database Schema 
 
-- [ ]  Schema do banco dados correspondente a entidade de `Product`
+- [ ] Criar tabela de produtos
 
 ```sql
 CREATE TABLE products (
@@ -65,6 +72,35 @@ CREATE TABLE products (
     description VARCHAR(255) NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     image_path VARCHAR(255)
+);
+```
+- [ ] Criar tabela de usuários
+
+```sql
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    phone_number VARCHAR(20) NOT NULL,
+    status VARCHAR(50) NOT NULL DEFAULT 'active',
+);
+```
+- [ ] Criar tabela de solicitação de registro
+
+```sql
+CREATE TABLE registration_requests (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    phone_number VARCHAR(20) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(20) NOT NULL DEFAULT 'pending',
+    approved_at TIMESTAMP,
+    approved_by INTEGER,
+    rejected_at TIMESTAMP,
+    rejected_reason VARCHAR(255)
 );
 ```
 
@@ -81,6 +117,50 @@ CREATE TABLE products (
     - Utilizar o domain model para validar e lidar com as regras de negócios do produto
 
 ## Endpoints
+- [ ]  Criar endpoint de registro de usuário **POST** `/register`
+  - Request Body:
+```json
+{
+  "username": "username",
+  "email": "email",
+  "password": "password",
+  "phone_number": "phone_number"
+}
+```
+```
++ Response Body:
+```
+```json
+{
+  "message": "Solicitação de registro enviada com sucesso.",
+  "registration_request_id": "example-uuid-1234"
+}
+```
+- [ ]  Criar endpoint de aprovação de solicitação de registro **POST** `/approve-registration`
+  - Request Body:
+```json
+{
+  "registration_request_id": "example-uuid-1234",
+  "approved_by": "admin_username"
+}
+```
+- [ ]  Criar endpoint de login **POST** `/login`
+  - Request Body:
+```json
+{
+  "username": "username",
+  "password": "password"
+}
+```
+```
++ Response Body:
+```
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaGFuIjoiMjMwfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+}
+```
+     
 - [ ]  Criar endpoint de cadastro de produto **POST** `/product`
   - Request Body:
 ```json
