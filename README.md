@@ -86,17 +86,41 @@ CREATE TABLE products (
 - [ ]  Criar endpoint de consulta de produto **GET** `/product/{productId}`
   - Response Body:
 ```json
-
+{
+  "id": "example-uuid-1234",
+  "name": "Product Name",
+  "description": "Product Description",
+  "price": 19.99,
+  "image_path": "https//example.com/image.jpg"
+}
 ```
 - [ ]  Criar endpoint de atualização de produto **PUT** `/product/{productId}`
   - Request Body:
 ```json
-
+{
+  "name": "New Product Name",
+  "description": "New Product Description",
+  "price": 29.99,
+  "image_path": "https//example.com/new_image.jpg"
+}
 ```
 - [ ]  Criar endpoint de visualização de todos os produtos **GET** `/products`
   - Response Body:
 ```json
-
+{
+  "id": "exampleuuid1234",
+  "name": "Product Name",
+  "description": "Product Description",
+  "price": 19.99,
+  "image_path": "https//example.com/image.jpg"
+},
+{
+  "id": "exampleuuid5678",
+  "name": "Another Product",
+  "description": "Another Description",
+  "price": 55.50,
+  "image_path": "https//example.com/another_product_image.jpg"
+}
 ```
 - [ ]  Criar endpoint de exclusão de produto **DELETE** `/product/{productId}`
   - Sem request body ou response boy para este endpoint
