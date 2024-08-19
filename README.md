@@ -36,7 +36,7 @@ A aplicação permitirá que os usuários criem, editem, apaguem e visualizem os
     - `Price`(decimal):preço do produto
     - `ImagePath`(string): caminho do arquivo de imagem do produto
 
-```
+```go
 type Product struct {
     ID          uuid.UUID       `json:"id"`
     Name        string          `json:"name"`
@@ -49,7 +49,8 @@ type Product struct {
 ## Database Schema
 
 - [ ]  Schema do banco dados correspondente a entidade de `Product`
-```
+
+```sql
 CREATE TABLE products (
     id UUID PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
