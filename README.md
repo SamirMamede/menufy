@@ -10,7 +10,7 @@ A aplicação permitirá que os usuários criem, editem, apaguem e visualizem os
 </p>
 
 ### Requisitos funcionais
--  O usuário cadastra um produto informando o ```nome```, ```descrição```, ```preço```.;
+-  O usuário cadastra um produto informando o ```nome```, ```descrição```, ```preço```;
 -  O usuário pode editar os dados de um produto cadastrado;
 -  O usuário pode apagar um produto cadastrado;
 -  O usuário pode visualizar todos os produtos cadastrados em forma de um cardápio;
@@ -74,10 +74,33 @@ CREATE TABLE products (
 
 ## Endpoints
 - [ ]  Criar endpoint de cadastro de produto **POST** `/product`
+  - Request Body:
+```json
+{
+  "name": "Product Name",
+  "description": "Product Description",
+  "price": 19.99,
+  "image_path": "https//example.com/image.jpg"
+}
+```
 - [ ]  Criar endpoint de consulta de produto **GET** `/product/{productId}`
+  - Response Body:
+```json
+
+```
 - [ ]  Criar endpoint de atualização de produto **PUT** `/product/{productId}`
+  - Request Body:
+```json
+
+```
+- [ ]  Criar endpoint de visualização de todos os produtos **GET** `/products`
+  - Response Body:
+```json
+
+```
 - [ ]  Criar endpoint de exclusão de produto **DELETE** `/product/{productId}`
-- [ ]  Criar endpoint de visualização de todos os produtos **GET** `/products` 
+  - Sem request body ou response boy para este endpoint
+
 
 ## Testes
 ### Escrever testes para cada endpoint da API
