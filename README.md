@@ -142,6 +142,11 @@ CREATE TABLE products (
 - [ ]  Verificar se o produto é excluído com sucesso
 - [ ]  Testar visualização de todos os produtos
 - [ ]  Verificar se a API retorna a lista de produtos correta
+- [ ]  Testar cadastro de produto com imagem inválida (string que não é uma URL válida)
+- [ ]  Testar cadastro de produto com uma imagem muito grande
+- [ ]  Testar cadastro de produto com tipo de arquivo de imagem inválido(arquivo de texto, csv, xlsx)
+- [ ]  Testar atualização do produto com imagem nova
+- [ ]  Testar atualização de produto sem imagem
 
 ## Visão da estrutura
 ```
