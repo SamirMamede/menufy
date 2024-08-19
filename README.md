@@ -4,6 +4,11 @@
 A aplicação permitirá que os usuários criem, editem, apaguem e visualizem os produtos que farão parte do cardápio.<br>
 </p>
 
+### Por que "Menufy"?
+<p>O nome "Menufy" foi escolhido para refletir o propósito e os valores do projeto. "Menufy" é uma combinação de "Menu" e "Simplificar".<br>
+É uma escolha que busca combinar a essência do projeto com uma palavra que seja fácil de lembrar e pronunciar..<br>
+</p>
+
 ### Requisitos funcionais
 -  O usuário cadastra um produto informando o ```nome```, ```descrição```, ```preço```.;
 -  O usuário pode editar os dados de um produto cadastrado;
