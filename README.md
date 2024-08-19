@@ -4,13 +4,13 @@
 A aplicação permitirá que os usuários criem, editem, apaguem e visualizem os produtos que farão parte do cardápio.<br>
 </p>
 
-# Back-end
 ### Requisitos funcionais
 -  O usuário cadastra um produto informando o ```nome```, ```descrição```, ```preço```.;
 -  O usuário pode editar os dados de um produto cadastrado;
 -  O usuário pode apagar um produto cadastrado;
 -  O usuário pode visualizar todos os produtos cadastrados em forma de um cardápio;
 
+# Back-end
 ### Configuração e criação do projeto
 - [ ]  Criar projeto usando Go e Gin
 - [ ]  Configurar conteinerização com Docker
