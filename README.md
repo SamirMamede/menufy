@@ -30,10 +30,10 @@ A aplicação permitirá que os usuários criem, editem, apaguem e visualizem os
 ## Domain Model
 - [ ]  Criar entidades que irá representar um `Produto`
   - Product
-  - Id
-  - Name
-  - Description
-  - Price
+    - Id
+    - Name
+    - Description
+    - Price
 
 ## Repository
 - [ ]  Criar repository da entidade `Produto`
