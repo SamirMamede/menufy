@@ -34,12 +34,64 @@ A aplicação permitirá que os usuários criem, editem, apaguem e visualizem os
 - [ ]  Utilizar Docker para containerização da aplicação
 
 ## Infrastructure
-- [ ]  Criar tabela de `Products` no banco de dados
+- [ ]  Criar tabela de `User`
+- [ ]  Criar tabela de `RegistrationRequest`
+- [ ]  Criar tabela de `Product`
 - [ ]  Configurar conexão com o banco de dados
 - [ ]  Criar migrations para alterar a estrutura do banco de dados
 
 ## Domain Model
-- [ ]  Criar entidades que irá representar um `Produto`
+- [ ]  Criar entidades que irá representar um `User`
+  - User
+    - `id`(primary key, uuid): identificado único do usuário
+    - `name`(string): nome do usuário
+    - `email`(string): email do usuário
+    - `password`(string): senha do usuário (hashed)
+    - `phone_number`(string): contato do usuário
+    - `status`(string): status do usuário ("active", "inactive")
+```go
+type User struct {
+    ID       uuid.UUID `json:"id"`
+    Name     string    `json:"name"`
+    Email    string    `json:"email"`
+    Password string    `json:"password"`
+    PhoneNumber string `json:"phone_number"`
+    Status      string `json:"status"`
+}
+```
+
+- [ ]  Criar entidades que irá representar um `RegistrationRequest`
+  - RegistrationRequest
+    - `id`(primary key, uuid): identificado único do usuário que solicitou registro
+    - `name`(string): nome do usuário que solicitou o registro
+    - `username`(string): nome de login do usuário que fez a solicitação de registro
+    - `password`(string): senha do solicitante do registro
+    - `email`(string): email do solicitante do registro
+    - `phone_number`(string): número de telefone do solicitante do registro
+    - `created_at`(timestamp): data e hora em que a solicitação de registro foi criada
+    - `status`(string): status da solicitação de registro (por exemplo, "pending", "approved", "rejected")
+    - `ApprovedAt`(timestamp): data e hora em que a solicitação de registro foi aprovada
+    - `ApprovedBy`(integer): identificador do usuário que aprovou a solicitação de registro
+    - `RejectedAt`(timestamp): data e hora em que a solicitação de registro foi rejeitada
+    - `RejectedReason`(string): motivo da rejeição da solicitação de registro
+```go
+type RegistrationRequest struct {
+    ID          uint           `json:"id"`
+    Name        string         `json:"name"`
+    Username    string         `json:"username"`
+    Password    string         `json:"password"`
+    Email       string         `json:"email"`
+    PhoneNumber string         `json:"phone_number"`
+    CreatedAt   time.Time      `json:"created_at"`
+    Status      string         `json:"status"`
+    ApprovedAt  *time.Time     `json:"approved_at"`
+    ApprovedBy  *uint          `json:"approved_by"`
+    RejectedAt  *time.Time     `json:"rejected_at"`
+    RejectedReason *string     `json:"rejected_reason"`
+}
+```
+
+- [ ]  Criar entidades que irá representar um `Product`
   - Product
     - `ID`(primary key, uuid): identificado único do produto
     - `Name`(string): nome do produto
@@ -56,10 +108,6 @@ type Product struct {
     ImagePath   string          `json:"image_path"`
 }
 ```
-<p>Criar novas tabelas 
-Tabela de sessões: para armazenar as informações de login do usuário e gerar tokens de autenticação.<br>
-Tabela de autenticação: para armazenar as informações de autenticação do usuário, como senha hashada.<br>
-</p>
 
 ## Database Schema 
 
