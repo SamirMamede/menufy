@@ -64,7 +64,6 @@ type User struct {
   - RegistrationRequest
     - `id`(primary key, uuid): identificado único do usuário que solicitou registro
     - `name`(string): nome do usuário que solicitou o registro
-    - `username`(string): nome de login do usuário que fez a solicitação de registro
     - `password`(string): senha do solicitante do registro
     - `email`(string): email do solicitante do registro
     - `phone_number`(string): número de telefone do solicitante do registro
@@ -78,7 +77,6 @@ type User struct {
 type RegistrationRequest struct {
     ID          uint           `json:"id"`
     Name        string         `json:"name"`
-    Username    string         `json:"username"`
     Password    string         `json:"password"`
     Email       string         `json:"email"`
     PhoneNumber string         `json:"phone_number"`
@@ -110,45 +108,45 @@ type Product struct {
 ```
 
 ## Database Schema 
-
-- [ ] Criar tabela de produtos
-
-```sql
-CREATE TABLE products (
-    id UUID PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    description VARCHAR(255) NOT NULL,
-    price DECIMAL(10, 2) NOT NULL,
-    image_path VARCHAR(255)
-);
-```
 - [ ] Criar tabela de usuários
 
 ```sql
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    phone_number VARCHAR(20) NOT NULL,
-    status VARCHAR(50) NOT NULL DEFAULT 'active',
+CREATE TABLE user (
+  id UUID PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  phone_number VARCHAR(20),
+  status VARCHAR(20) NOT NULL CHECK(status IN ('active', 'inactive'))
 );
 ```
 - [ ] Criar tabela de solicitação de registro
 
 ```sql
-CREATE TABLE registration_requests (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    phone_number VARCHAR(20) NOT NULL,
-    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    status VARCHAR(20) NOT NULL DEFAULT 'pending',
-    approved_at TIMESTAMP,
-    approved_by INTEGER,
-    rejected_at TIMESTAMP,
-    rejected_reason VARCHAR(255)
+CREATE TABLE registration_request (
+  id UUID PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  phone_number VARCHAR(20),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  status VARCHAR(20) NOT NULL CHECK(status IN ('pending', 'approved', 'rejected')),
+  approved_at TIMESTAMP,
+  approved_by INTEGER,
+  rejected_at TIMESTAMP,
+  rejected_reason VARCHAR(255),
+  FOREIGN KEY (approved_by) REFERENCES users(id)
+);
+```
+- [ ] Criar tabela de produtos
+
+```sql
+CREATE TABLE product (
+  id UUID PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  description VARCHAR(255) NOT NULL,
+  price DECIMAL(10, 2) NOT NULL,
+  image_path VARCHAR(255) NOT NULL
 );
 ```
 
