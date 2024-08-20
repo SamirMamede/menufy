@@ -151,7 +151,15 @@ CREATE TABLE product (
 ```
 
 ## Repository
-- [ ]  Criar repository da entidade `Produto`
+- [ ]  Criar repository da entidade `User`
+  - UserRepository
+    - Métodos para acessar e manipular os dados do usuário no banco de dados
+
+- [ ]  Criar repository da entidade `RegistrationRequest`
+  - RegistrationRequestRepository
+    - Métodos para acessar e manipular os dados da solicitação de registro no banco de dados
+   
+- [ ]  Criar repository da entidade `Product`
   - ProductRepository
     - Métodos para acessar e manipular os dados do produto no banco de dados
 
