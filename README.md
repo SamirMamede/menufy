@@ -164,6 +164,18 @@ CREATE TABLE product (
     - Métodos para acessar e manipular os dados do produto no banco de dados
 
 ## Service
+- [ ]  Criar serviço que irá lidar com as operações de `User`
+  - UserService
+    - Métodos para criar, editar, excluir e consultar usuários
+    - Utilizar o repository para acessar os dados do usuário
+    - Utilizar o domain model para validar e lidar com as regras de negócios do usuário
+   
+- [ ]  Criar serviço que irá lidar com as operações de `RegistrationRequest`
+  - RegistrationRequestService
+    - Métodos para criar, editar, excluir e consultar as solicitações de registro
+    - Utilizar o repository para acessar os dados da solicitação de registro
+    - Utilizar o domain model para validar e lidar com as regras de negócios da solicitação de registro
+   
 - [ ]  Criar serviço que irá lidar com as operações de `Produto`
   - ProductService
     - Métodos para criar, editar, excluir e consultar produtos
