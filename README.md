@@ -18,6 +18,15 @@ A aplicação permitirá que os usuários criem, editem, apaguem e visualizem os
 -  O usuário pode apagar um produto cadastrado;
 -  O usuário pode visualizar todos os produtos cadastrados em forma de um cardápio;
 
+### Fluxo da aplicação
+- **Registro:** O usuário solicita seu registro na plataforma preenchendo um formulário com informações como nome, senha, email e número de telefone.
+- **Aprovação:**  A solicitação de registro é enviada ao administrador do sistema, que pode aprovar ou rejeitar a solicitação.
+- **Login:** Se a solicitação for aprovada, o usuário pode se logar no sistema com seu nome de usuário e senha.
+- **Configuração do Estabelecimento:** Ao acessar o sistema pela primeira vez, o usuário é solicitado a preencher um formulário com informações do estabelecimento, como nome, CNPJ, endereço e número de contato.
+- **Criação do Menu:** O usuário pode criar seu próprio menu digital, adicionando produtos com informações como nome, descrição, preço e imagem.
+- **Gerenciamento do Menu:** O usuário pode editar, apagar e visualizar todos os produtos em seu menu personalizado.
+- **Exibição do Menu:** O menu digital é exibido em uma URL exclusiva e personalizada do estabelecimento, com a logo do estabelecimento no topo e as informações do estabelecimento no rodapé.
+ 
 ### Tecnologias utilziadas
 - Go
 - Gin
