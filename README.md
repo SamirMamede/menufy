@@ -32,7 +32,6 @@ A aplicação permitirá que os usuários criem, editem, apaguem e visualizem os
 - Gin
 - Docker
 - PostgreSQL
-- HTMX
 - Tailwind CSS
 
 # Back-end
@@ -311,19 +310,6 @@ CREATE TABLE product (
 - [ ]  Testar atualização do produto com imagem nova
 - [ ]  Testar atualização de produto sem imagem
 
-## Visão da estrutura
-```
-API (Endpoints)
-  |
-  |-- Controller (Recebe requisições HTTP)
-  |    |
-  |    |-- Service (Processa requisições e chama repositórios)
-  |    |    |
-  |    |    |-- Repository (Acessa dados do banco de dados)
-  |    |    |-- Domain Model (Define as regras de negócios)
-```
 # Front-end
 - [ ]  Criar tela de cadastro de produtos que permita ao usuário cadastrar um produto informando o `nome`, `descrição`, `preço`.
-- [ ]  Utilizar HTMX para lidar com as requisições de cadastro de produtos.
-- [ ]  Utilizar Tailwind CSS para estilizar os elementos HTML.
 - [ ]  Criar tela de listagem de produtos que exiba todos os produtos cadastrados no sistema.
