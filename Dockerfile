@@ -7,6 +7,4 @@ COPY go.mod .
 COPY go.sum .
 RUN go build -o menuFy .
 
-EXPOSE 8000
-
 CMD ["./menuFy", "-p", "8000:8000"]
