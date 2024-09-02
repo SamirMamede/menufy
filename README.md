@@ -15,8 +15,6 @@ A aplicação permitirá que os usuários criem, editem, apaguem e visualizem os
 E utilizada em projetos de código aberto, como Docker, Kubernetes e Prometheus.<br>
 </p>
 
-Go foi escolhida para este projeto devido ao seu desempenho, concorrência eficiente e simplicidade. Go é amplamente utilizada em empresas de grande escala, como Google, Netflix e Dropbox, e em projetos de código aberto, como Docker, Kubernetes e Prometheus. Sua velocidade, segurança e facilidade de aprendizado tornam-na uma escolha ideal para aplicações que exigem alto desempenho e escalabilidade. Com sua comunidade ativa e recursos abundantes, Go é uma escolha confiável para projetos de grande escala.
-
 ### Requisitos funcionais
 -  O usuário pode se registrar enviando uma solicitação de registro para o administrador;
 -  O administrador pode aprovar ou rejeitar a solicitação de registro;
