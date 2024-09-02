@@ -9,12 +9,6 @@ A aplicação permitirá que os usuários criem, editem, apaguem e visualizem os
 É uma escolha que busca combinar a essência do projeto com uma palavra que seja fácil de lembrar e pronunciar..<br>
 </p>
 
-### Por que Go?
-<p>Go foi escolhida para este projeto devido ao seu desempenho, concorrência eficiente e simplicidade.<br>
-É amplamente utilizada em empresas de grande escala, como Google, Netflix e Dropbox.<br>
-E utilizada em projetos de código aberto, como Docker, Kubernetes e Prometheus.<br>
-</p>
-
 ### Requisitos funcionais
 -  O usuário pode se registrar enviando uma solicitação de registro para o administrador;
 -  O administrador pode aprovar ou rejeitar a solicitação de registro;
@@ -39,6 +33,12 @@ E utilizada em projetos de código aberto, como Docker, Kubernetes e Prometheus.
 - Docker
 - PostgreSQL
 - Tailwind CSS
+
+### Por que Go?
+<p>Go foi escolhida para este projeto devido ao seu desempenho, concorrência eficiente e simplicidade.<br>
+É amplamente utilizada em empresas de grande escala, como Google, Netflix e Dropbox.<br>
+E utilizada em projetos de código aberto, como Docker, Kubernetes e Prometheus.<br>
+</p>
 
 # Back-end
 ### Configuração e criação do projeto
