@@ -54,7 +54,7 @@ E utilizada em projetos de código aberto, como Docker, Kubernetes e Prometheus.
 - [ ]  Configurar conexão com o banco de dados
 - [ ]  Criar migrations para alterar a estrutura do banco de dados
 
-## Domain Model
+## Model
 - [ ]  Criar entidades que irá representar um `User`
   - User
     - `id`(primary key, uuid): identificado único do usuário
@@ -177,24 +177,24 @@ CREATE TABLE product (
   - ProductRepository
     - Métodos para acessar e manipular os dados do produto no banco de dados
 
-## Service
-- [ ]  Criar serviço que irá lidar com as operações de `User`
-  - UserService
+## Use case
+- [ ]  Criar lógica que irá lidar com as operações de `User`
+  - UserUseCase
     - Métodos para criar, editar, excluir e consultar usuários
     - Utilizar o repository para acessar os dados do usuário
-    - Utilizar o domain model para validar e lidar com as regras de negócios do usuário
+    - Utilizar o model para validar e lidar com as regras de negócios do usuário
    
-- [ ]  Criar serviço que irá lidar com as operações de `RegistrationRequest`
-  - RegistrationRequestService
+- [ ]  Criar lógica que irá lidar com as operações de `RegistrationRequest`
+  - RegistrationRequestUseCase
     - Métodos para criar, editar, excluir e consultar as solicitações de registro
     - Utilizar o repository para acessar os dados da solicitação de registro
-    - Utilizar o domain model para validar e lidar com as regras de negócios da solicitação de registro
+    - Utilizar o model para validar e lidar com as regras de negócios da solicitação de registro
    
-- [ ]  Criar serviço que irá lidar com as operações de `Produto`
-  - ProductService
+- [ ]  Criar lógica que irá lidar com as operações de `Produto`
+  - ProductUseCase
     - Métodos para criar, editar, excluir e consultar produtos
     - Utilizar o repository para acessar os dados do produto
-    - Utilizar o domain model para validar e lidar com as regras de negócios do produto
+    - Utilizar o model para validar e lidar com as regras de negócios do produto
 
 ## Endpoints
 - [ ]  Criar endpoint de registro de usuário **POST** `/register`
