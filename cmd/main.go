@@ -1,10 +1,16 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/SamirMamede/menufy/controller"
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
 
 	server := gin.Default()
+	server.Use(gin.Logger())
+
+	ProductController := controller.NewProductController()
 
 	server.GET("/teste", func(ctx *gin.Context) {
 
@@ -12,6 +18,8 @@ func main() {
 			"message": "Successful call",
 		})
 	})
+
+	server.GET("/products", ProductController.GetProducts)
 
 	server.Run(":8000")
 

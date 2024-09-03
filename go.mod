@@ -1,4 +1,4 @@
-module backend-menufy
+module github.com/SamirMamede/menufy
 
 go 1.23.0
 

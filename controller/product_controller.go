@@ -1,6 +1,11 @@
 package controller
 
-import "github.com/gin-gonic/gin"
+import (
+	"net/http"
+
+	"github.com/SamirMamede/menufy/model"
+	"github.com/gin-gonic/gin"
+)
 
 type productController struct {
 	//Usecase
@@ -11,5 +16,16 @@ func NewProductController() productController {
 }
 
 func (p *productController) GetProducts(ctx *gin.Context) {
-	//list products
+
+	products := []model.Product{
+		{
+			ID:          1,
+			Name:        "Batata frita Pequena",
+			Price:       15.0,
+			Description: "Batata para as crianças",
+			ImagePath:   "/example.path",
+		},
+	}
+
+	ctx.JSON(http.StatusOK, products)
 }
